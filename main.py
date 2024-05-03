@@ -9,7 +9,7 @@ if start_game == "yes":
 
 words = ['apple', 'bannana', 'orange']
 guess_word = random.choice(words)
-new_word = len(guess_word) *str('_')
+new_word = ['_' for _ in guess_word]
 
 print(new_word)
 
@@ -20,8 +20,8 @@ guess = (input('\nGuess a letter\n'))
 if guess in guess_word:
             for index, letter in enumerate(guess_word):
                 if letter == guess:
-                    guess_word[index] = guess
-            print('Word to guess:', ' '.join(guess_word))
+                    new_word[index] = guess
+            print('Word to guess:', ' '.join(new_word))
 
     #print(guess)
 
