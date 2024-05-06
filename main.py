@@ -1,6 +1,7 @@
 #Hangman Project
 import random
 
+
 start_game = input('Do you want to play Hangman?\n')
 
 if start_game == "yes":
@@ -9,22 +10,32 @@ if start_game == "yes":
 
 words = ['apple', 'bannana', 'orange']
 guess_word = random.choice(words)
-new_word = ['_' for _ in guess_word]
+new_word = ['_' for x in guess_word]
 
-print(new_word)
+print(' '.join(new_word))
 
-#for x in guess_word:
-    #print ("_", end = "")
 
-guess = (input('\nGuess a letter\n'))
-if guess in guess_word:
-            for index, letter in enumerate(guess_word):
-                if letter == guess:
-                    new_word[index] = guess
-            print('Word to guess:', ' '.join(new_word))
+while True:
+    guess = (input('\nGuess a letter\n'))
+    if guess in guess_word:
+                for x, letter in enumerate(guess_word):
+                    if letter == guess:
+                        new_word[x] = guess
+                        print(' '.join(new_word))
 
-    #print(guess)
+                if ''.join(new_word) == guess_word:
+                    congratulations = "you correctly guessed"
+                    print(f"{congratulations}" + " " + ''.join(new_word))
+                    print('Game Over')
+                    break
+                elif ''.join(new_word) != guess_word:
+                    print('Well done! Try another')
 
-#print(guess_word)
+
+
+
+
+
+
 
 
